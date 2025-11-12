@@ -56,7 +56,7 @@ export interface EnemyData {
   drops?: Drops[];
 }
 
-export const enemyData: EnemyData[] = [
+export const enemies: EnemyData[] = [
   { id: 1, name: "Slime", location: "Village", dungeon: "Riverbank" },
   { id: 2, name: "Bird", location: "Village", dungeon: "Riverbank" },
   { id: 3, name: "Goblin", location: "Village", dungeon: "Riverbank" },

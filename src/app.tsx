@@ -5,7 +5,7 @@ import Fuse, { type IFuseOptions } from "fuse.js";
 import React from "react";
 
 import { Table } from "./components/table.tsx";
-import { type EnemyData, enemyData } from "./data/enemies.ts";
+import { enemies, type EnemyData } from "./data/enemies.ts";
 
 const columnHelper = createColumnHelper<EnemyData>();
 const columns = [
@@ -23,12 +23,12 @@ const options: IFuseOptions<EnemyData> = {
   useExtendedSearch: true,
   keys: ["name", "location", "dungeon"],
 };
-const indexData = Fuse.createIndex(options.keys || [], enemyData);
-const fuse = new Fuse(enemyData, options, indexData);
+const indexData = Fuse.createIndex(options.keys || [], enemies);
+const fuse = new Fuse(enemies, options, indexData);
 
 export const App = () => {
   const [value, setValue] = React.useState("");
-  const filteredData = value.trim() ? fuse.search(value.trim()).map((i) => i.item) : enemyData;
+  const filteredData = value.trim() ? fuse.search(value.trim()).map((i) => i.item) : enemies;
 
   return (
     <>
