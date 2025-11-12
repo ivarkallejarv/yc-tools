@@ -13,7 +13,7 @@ const columns = [
   columnHelper.accessor("name", { header: "Name" }),
   columnHelper.accessor("dungeon", { header: "Habitat" }),
   columnHelper.accessor("drops", {
-    header: "Materials",
+    header: "Drops",
     cell: (cell) => cell.getValue()?.join(", "),
   }),
 ];
